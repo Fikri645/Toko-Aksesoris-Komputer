@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="container">
-    <div class="banner shadow">
-        <img src="{{ url('assets/slider.png') }}" alt="banner" class="img-fluid">
+    <div class="banner">
+        <img src="{{ url('assets/slider.png') }}" alt="banner" class="img-fluid shadow">
     </div>
 
     <section class="pilih-kategori">
@@ -22,11 +22,11 @@
         </div>
     </section>
 
-    <section class="best-produk mt-5 mb-5">
+    <section class="products mt-5 mb-5">
         <h3 class="mt-5"><strong>Best Products</strong></h3>
         <div class="row mt-4">
             @foreach($products as $product)
-            <div class="col">
+            <div class="col-md-3">
                 <div class="card">
                     <div class="card-body text-center">
                         <img src="{{ url('assets/produk') }}/{{ $product->gambar }}" alt="{{ $product->gambar }}" class="img-fluid">

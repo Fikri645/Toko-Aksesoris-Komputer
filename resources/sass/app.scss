@@ -7,6 +7,10 @@
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
 
+body{
+    background-color: aliceblue;
+}
+
 .banner img {
     width: 100%;
     border-radius: 15px;
@@ -20,10 +24,10 @@
     border-radius: 15px;
 }
 
-.best-produk img{
+.products img{
     max-height: 150px;
 }
 
-.best-produk card{
+.products card{
     border-radius: 15px;
 }
