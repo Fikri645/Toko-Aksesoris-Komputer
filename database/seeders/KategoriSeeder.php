@@ -15,19 +15,19 @@ class KategoriSeeder extends Seeder
     {
         DB::table('kategoris')->insert([
             'nama' => 'Mouse',
-            'gambar' => 'mouse.png',
+            'gambar' => 'mouse.jpg',
         ]);
         DB::table('kategoris')->insert([
             'nama' => 'Keyboard',
-            'gambar' => 'keyboard.png',
+            'gambar' => 'keyboard.jpg',
         ]);
         DB::table('kategoris')->insert([
             'nama' => 'Headset',
-            'gambar' => 'headset.png',
+            'gambar' => 'headset.jpg',
         ]);
         DB::table('kategoris')->insert([
             'nama' => 'Mousepad',
-            'gambar' => 'mousepad.png',
+            'gambar' => 'mousepad.jpg',
         ]);
 
     }

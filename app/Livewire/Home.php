@@ -8,6 +8,9 @@ class Home extends Component
 {
     public function render()
     {
-        return view('livewire.home');
+        return view('livewire.home', [
+            'products' => \App\Models\Product::take(4)->get(),
+            'kategoris' => \App\Models\Kategori::all(),
+        ]);
     }
 }

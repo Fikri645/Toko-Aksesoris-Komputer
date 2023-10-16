@@ -6,3 +6,24 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+.banner img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.pilih-kategori img{
+    max-height: 150px;
+}
+
+.pilih-kategori .card{
+    border-radius: 15px;
+}
+
+.best-produk img{
+    max-height: 150px;
+}
+
+.best-produk card{
+    border-radius: 15px;
+}
