@@ -19,7 +19,20 @@ body{
     max-height: 125px;
 }
 
+.products h5{
+    min-height: 44px;
+}
+
 .products .card{
     border-radius: 15px;
     min-height: 250px;
+}
+
+.breadcrumb{
+    background-color: transparent;
+    padding: 0;
+}
+
+.page-item.active .page-link {
+    background-color: #343a40;
 }
