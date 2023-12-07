@@ -8,7 +8,7 @@ body{
 }
 
 .pilih-kategori img{
-    max-height: 140px;
+    max-height: 125px;
 }
 
 .pilih-kategori .card{
@@ -16,9 +16,10 @@ body{
 }
 
 .products img{
-    max-height: 140px;
+    max-height: 125px;
 }
 
-.products card{
+.products .card{
     border-radius: 15px;
+    min-height: 250px;
 }
