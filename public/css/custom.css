@@ -1,0 +1,24 @@
+body{
+    background-color: aliceblue;
+}
+
+.banner img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.pilih-kategori img{
+    max-height: 140px;
+}
+
+.pilih-kategori .card{
+    border-radius: 15px;
+}
+
+.products img{
+    max-height: 140px;
+}
+
+.products card{
+    border-radius: 15px;
+}
