@@ -34,8 +34,8 @@
                             </div>
                         </div>
                         <div class="row mt-2">
-                            <div class="col-md-12 d-grid gap-2">
-                                <a href="#" class="btn btn-dark">Detail</a>
+                            <div class="col-md-12">
+                                <a href="#" class="btn btn-dark btn-block">Detail</a>
                             </div>
                         </div>
                     </div>
