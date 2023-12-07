@@ -21,3 +21,5 @@ Route::livewire('/products', 'product-index')->name('products');
 Route::livewire('/product/kategori/{kategoriId}', 'product-kategori')->name('products.kategori');
 Route::livewire('/product/{id}', 'product-detail')->name('products.detail');
 Route::livewire('/keranjang', 'keranjang')->name('keranjang');
+Route::livewire('/checkout', 'checkout')->name('checkout');
+Route::livewire('/history', 'history')->name('history');

@@ -1,6 +1,6 @@
 <div class="container">
     <div class="banner">
-        <img src="{{ url('assets/slider.png') }}" alt="banner" class="img-fluid shadow">
+        <img src="{{ url('assets/slider/slider.png') }}" alt="banner" class="img-fluid shadow">
     </div>
 
     <section class="pilih-kategori">
