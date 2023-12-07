@@ -9,10 +9,12 @@
             @foreach($kategoris as $kategori)
             <div class="col">
                 <div class="card shadow">
-                    <div class="card-body text-center">
-                        <img src="{{ url('assets/kategori') }}/{{ $kategori->gambar }}" alt="{{ $kategori->gambar }}" class="img-fluid shadow">
-                        <h3 class="card-title mt-3"><strong>{{ $kategori->nama }}</strong></h3>
-                    </div>
+                    <a class="btn" href="{{ route('products.kategori', $kategori->id) }}">
+                        <div class="card-body text-center">
+                            <img src="{{ url('assets/kategori') }}/{{ $kategori->gambar }}" alt="{{ $kategori->gambar }}" class="img-fluid shadow">
+                            <h3 class="card-title mt-3"><strong>{{ $kategori->nama }}</strong></h3>
+                        </div>
+                    </a>
                 </div>
             </div>
             @endforeach
@@ -20,7 +22,7 @@
     </section>
 
     <section class="products mt-5 mb-5">
-        <h3 class="mt-5"><strong>Best Products</strong></h3>
+        <h3 class="mt-5"><strong>Best Products</strong> <a href="{{ route('products') }}" class="btn btn-dark float-right"><i class="fas fa-eye"></i> Lihat Semua</a></h3>
         <div class="row mt-4">
             @foreach($products as $product)
             <div class="col-md-3">
@@ -35,7 +37,7 @@
                         </div>
                         <div class="row mt-2">
                             <div class="col-md-12">
-                                <a href="#" class="btn btn-dark btn-block">Detail</a>
+                                <a href="#" class="btn btn-dark btn-block"><i class="fas fa-eye"></i> Detail</a>
                             </div>
                         </div>
                     </div>
