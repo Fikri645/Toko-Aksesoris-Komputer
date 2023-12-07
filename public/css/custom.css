@@ -36,3 +36,10 @@ body{
 .page-item.active .page-link {
     background-color: #343a40;
 }
+
+.gambar-product img{
+    max-height: 40vh;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
