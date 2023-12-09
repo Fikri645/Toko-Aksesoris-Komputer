@@ -117,7 +117,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('admin-pesanan') }}" class="nav-link">
                                 <i class="nav-icon fas fa-shopping-bag"></i>
                                 <p>
                                     Pesanan
@@ -156,18 +156,19 @@
                 <div class="container-fluid">
                     <!-- Small boxes (Stat box) -->
                     <div class="row">
+                        <!-- ./col -->
                         <div class="col-lg-4 col-6">
                             <!-- small box -->
-                            <div class="small-box bg-info">
+                            <div class="small-box bg-warning">
                                 <div class="inner">
-                                    <h3>{{ $pesanans->count() }}</h3>
-                                    <p>Total Pesanan</p>
+                                    <h3>{{ $users->where('role', 'user')->count() }}</h3>
+                                    <p>Total Akun Terdaftar</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-bag"></i>
+                                    <i class="ion ion-person-add"></i>
                                 </div>
-                                <a href="#" class="small-box-footer">More info <i
-                                        class="fas fa-arrow-circle-right"></i></a>
+                                <div href="#" class="small-box-footer"> <i
+                                        class="fas fa-user"></i></div>
                             </div>
                         </div>
                         <!-- ./col -->
@@ -188,15 +189,15 @@
                         <!-- ./col -->
                         <div class="col-lg-4 col-6">
                             <!-- small box -->
-                            <div class="small-box bg-warning">
+                            <div class="small-box bg-info">
                                 <div class="inner">
-                                    <h3>{{ $users->count() }}</h3>
-                                    <p>Total Akun Terdaftar</p>
+                                    <h3>{{ $pesanans->count() }}</h3>
+                                    <p>Total Pesanan</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-person-add"></i>
+                                    <i class="ion ion-bag"></i>
                                 </div>
-                                <a href="#" class="small-box-footer">More info <i
+                                <a href="{{ route('admin-pesanan') }}" class="small-box-footer">More info <i
                                         class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>

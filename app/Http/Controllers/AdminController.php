@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Kategori;
 use App\Pesanan;
+use App\PesananDetail;
 use App\Product;
 use App\User;
 use Illuminate\Http\Request;
@@ -149,6 +150,51 @@ class AdminController extends Controller
             $product->delete();
             session()->flash('message', 'Sukses Menghapus Produk');
             return redirect()->route('admin-product');
+        } else {
+            return redirect()->route('home');
+        }
+    }
+
+    public function pesanan()
+    {
+        $pesanans = Pesanan::paginate(8);
+        // jika role admin
+        if (auth()->user()->role == 'admin') {
+            return view('admin-pesanan', [
+                'kategoris' => Kategori::all(),
+                'pesanans' => $pesanans,
+                'pesanan_detail' => PesananDetail::all(),
+            ]);
+        } else {
+            return redirect()->route('home');
+        }
+    }
+
+    public function pesananUpdate(Request $request, $id)
+    {
+        $pesanan = Pesanan::find($id);
+        // jika role admin
+        if (auth()->user()->role == 'admin') {
+            $pesanan->update([
+                'status' => $request->input('status'),
+            ]);
+            session()->flash('message', 'Sukses Mengupdate Pesanan');
+            return redirect()->route('admin-pesanan');
+        } else {
+            return redirect()->route('home');
+        }
+    }
+
+    public function pesananDetail($id)
+    {
+        $pesanan = Pesanan::find($id);
+        // jika role admin
+        if (auth()->user()->role == 'admin') {
+            return view('admin-pesanan-detail', [
+                'kategoris' => Kategori::all(),
+                'pesanan' => $pesanan,
+                'pesanan_details' => PesananDetail::paginate(8)
+            ]);
         } else {
             return redirect()->route('home');
         }

@@ -111,7 +111,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin-product') }}" class="nav-link active">
+                            <a href="{{ route('admin-product') }}" class="nav-link">
                                 <i class="nav-icon fas fa-file"></i>
                                 <p>
                                     Produk
@@ -119,7 +119,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin-pesanan') }}" class="nav-link">
+                            <a href="{{ route('admin-pesanan') }}" class="nav-link active">
                                 <i class="nav-icon fas fa-shopping-bag"></i>
                                 <p>
                                     Pesanan
@@ -140,13 +140,13 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Product</h1>
+                            <h1 class="m-0">Detail Pesanan</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="{{ route('admin-page') }}">Home</a></li>
-                                <li class="breadcrumb-item"><a href="{{ route('admin-product') }}">Product</a></li>
-                                <li class="breadcrumb-item active">{{ $product->id }}</li>
+                                <li class="breadcrumb-item"><a href="{{ route('admin-pesanan') }}">Pesanan</a></li>
+                                <li class="breadcrumb-item active">Detail Pesanan</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -168,119 +168,110 @@
                         @endif
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card gambar-product">
-                            <div class="card-body">
-                                <img src="{{ url('assets/produk') }}/{{ $product->gambar }}"
-                                    alt="{{ $product->gambar }}" class="img-fluid" width="700">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div class="col">
-                                <h2><strong>{{ $product->nama }}</strong></h2>
-                            </div>
-                            <div class="col">
-                                @if ($product->is_ready == 1)
-                                    <span class="badge badge-success" style="background-color: green;"><i
-                                            class="fas fa-check"></i> Ready stok</span>
-                                @else
-                                    <span class="badge badge-danger" style="background-color: red;"><i
-                                            class="fas fa-times"></i> Stok Habis</span>
-                                @endif
-                            </div>
-                        </div>
-                        <h4>Rp. {{ number_format($product->harga) }}</h4>
-                        <hr>
-                        <div class="row">
-                            <div class="col">
-                                <form enctype="multipart/form-data" action="{{ url('/admin/product/update/' . $product->id) }}" method="POST">
-                                    @csrf
-                                    @method('PUT')
-                                    <table class="table" style="border-top: hidden;">
-                                        <tr>
-                                            <td>Gambar</td>
-                                            <td>:</td>
-                                            <td>
-                                                <div class="custom-file">
-                                                    <input type="file" accept="image/*" class="custom-file-input"
-                                                        id="gambar" name="gambar">
-                                                    <label class="custom-file-label">Choose
-                                                        file</label>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Nama</td>
-                                            <td>:</td>
-                                            <td>
-                                                <input type="text" name="nama" class="form-control"
-                                                    value="{{ $product->nama }}">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Harga</td>
-                                            <td>:</td>
-                                            <td>
-                                                <input type="number" name="harga" class="form-control"
-                                                    value="{{ $product->harga }}">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Kategori</td>
-                                            <td>:</td>
-                                            <td>
-                                                <select name="kategori" class="form-control">
-                                                    <option value="{{ $product->kategori_id }}">
-                                                        {{ $product->kategori->nama }}</option>
-                                                    @foreach ($kategoris as $kategori)
-                                                        <option value="{{ $kategori->id }}">{{ $kategori->nama }}
-                                                        </option>
-                                                    @endforeach
-                                                </select>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Merek</td>
-                                            <td>:</td>
-                                            <td>
-                                                <input type="text" name="merek" class="form-control"
-                                                    value="{{ $product->merek }}">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Deskripsi</td>
-                                            <td>:</td>
-                                            <td>
-                                                <textarea name="deskripsi" cols="30" rows="5" class="form-control">{{ $product->deskripsi }}</textarea>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Is Ready?</td>
-                                            <td>:</td>
-                                            <td>
-                                                <select name="is_ready" class="form-control">
-                                                    <option value="{{ $product->is_ready }}">
-                                                        {{ $product->is_ready == 1 ? 'Ready' : 'Kosong' }}</option>
-                                                    <option value="1">Ready</option>
-                                                    <option value="0">Kosong</option>
-                                                </select>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3" class="text-center">
-                                                <button type="submit" class="btn btn-dark btn-block"><i
-                                                        class="fas fa-save"></i> Simpan</button>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </form>
-                            </div>
-                        </div>
+
+                {{-- tombol back --}}
+                <div class="row mb-2">
+                    <div class="col-md-12">
+                        <a href="{{ route('admin-pesanan') }}" class="btn btn-dark btn-sm mb-3"><i
+                                class="fas fa-arrow-left"></i> Kembali</a>
                     </div>
                 </div>
+                <!-- Default box -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Detail Pesanan</h3>
+
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse"
+                                title="Collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <table class="table table-striped projects">
+                            <thead>
+                                <tr>
+                                    <th style="width: 1%" class="text-center">
+                                        No.
+                                    </th>
+                                    <th class="text-center">
+                                        Gambar
+                                    </th>
+                                    <th class="text-center">
+                                        Nama Produk
+                                    </th>
+                                    <th class="text-center">
+                                        Harga
+                                    </th>
+                                    <th class="text-center">
+                                        Jumlah
+                                    </th>
+                                    <th style="width: 20%" class="text-center">
+                                        Subtotal
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse($pesanan_details as $pesanan_detail)
+                                @if ($pesanan_detail->pesanan_id == $pesanan->id)
+                                    <tr class="text-center">
+                                        <td>
+                                            {{-- buat agar nomor sesuai dengan pagination --}}
+                                            {{ ($pesanan_details->currentPage() - 1) * $pesanan_details->perPage() + $loop->iteration }}
+
+                                        </td>
+                                        <td>
+                                            <img src="{{ url('assets/produk') }}/{{ $pesanan_detail->product->gambar }}"
+                                                alt="{{ $pesanan_detail->product->gambar }}" class="img-fluid"
+                                                width="100">
+                                        </td>
+                                        <td>
+                                            {{ $pesanan_detail->product->nama }}
+                                        </td>
+                                        <td>
+                                            Rp. {{ number_format($pesanan_detail->product->harga) }}
+                                        </td>
+                                        <td>
+                                            {{ $pesanan_detail->jumlah_pesanan }}
+                                        </td>
+                                        <td>
+                                            Rp. {{ number_format($pesanan_detail->total_harga) }}
+                                        </td>
+                                    </tr>
+                                @endif
+                                @empty
+                                    <tr class="text-center">
+                                        <td colspan="9">Data Kosong</td>
+                                    </tr>
+                                @endforelse
+                                @if(!empty($pesanan))
+                                    <tr class="text-center">
+                                        <td colspan="5" align="right"><strong>Total Harga :</strong></td>
+                                        <td><strong>Rp. {{ number_format($pesanan->total_harga) }}</strong></td>
+                                    </tr>
+                                    <tr class="text-center">
+                                        <td colspan="5" align="right"><strong>Kode Unik :</strong></td>
+                                        <td><strong>Rp. {{ number_format($pesanan->kode_unik) }}</strong></td>
+                                    </tr>
+                                    <tr class="text-center">
+                                        <td colspan="5" align="right"><strong>Total yang harus dibayar :</strong></td>
+                                        <td><strong>Rp. {{ number_format($pesanan->total_harga+$pesanan->kode_unik) }}</strong></td>
+                                    </tr>
+                                @endif
+                                <tr>
+                                    <td colspan="9">{{ $pesanan_details->links() }}</td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
             </section>
             <!-- /.content -->
         </div>
@@ -329,18 +320,10 @@
     <script src="{{ asset('plugins/summernote/summernote-bs4.min.js') }}"></script>
     <!-- overlayScrollbars -->
     <script src="{{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
-    <!-- bs-custom-file-input -->
-    <script src="../../plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('dist/js/adminlte.js') }}"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
-    <!-- Page specific script -->
-    <script>
-        $(function() {
-            bsCustomFileInput.init();
-        });
-    </script>
 </body>
 
 </html>

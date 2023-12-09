@@ -30,3 +30,8 @@ Route::post('/admin/product/create', 'AdminController@productCreate')->name('adm
 Route::get('/admin/product/{id}', 'AdminController@productEdit')->name('admin-product-edit');
 Route::put('/admin/product/update/{id}', 'AdminController@productUpdate')->name('admin-product-update');
 Route::get('/admin/product/{id}/delete', 'AdminController@productDelete')->name('admin-product-delete');
+
+Route::get('/admin/pesanan', 'AdminController@pesanan')->name('admin-pesanan');
+Route::put('/admin/pesanan/update/{id}', 'AdminController@pesananUpdate')->name('admin-pesanan-update');
+
+Route::get('/admin/pesanan/{id}', 'AdminController@pesananDetail')->name('admin-pesanan-detail');

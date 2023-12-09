@@ -119,7 +119,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('admin-pesanan') }}" class="nav-link">
                                 <i class="nav-icon fas fa-shopping-bag"></i>
                                 <p>
                                     Pesanan
@@ -170,13 +170,13 @@
                 {{-- tombol add untuk mengarah ke halaman add product --}}
                 <div class="row mb-2">
                     <div class="col-md-12">
-                        <a href="{{ route('admin-product-add') }}" class="btn btn-primary">Add Product</a>
+                        <a href="{{ route('admin-product-add') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Add Product</a>
                     </div>
                 </div>
                 <!-- Default box -->
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Projects</h3>
+                        <h3 class="card-title">Tabel Produk</h3>
 
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse"
@@ -247,6 +247,10 @@
                                         <br />
                                         <small>
                                             Created at {{ $product->created_at }}
+                                        </small>
+                                        <br />
+                                        <small>
+                                            Updated at {{ $product->updated_at }}
                                         </small>
                                     </td>
                                     <td>
